@@ -12,9 +12,10 @@
   {% endfor %}
   {% if user.is_authenticated %}
     <h4>Add your comment:</h4>
-    <form action="" method="post" novalidate id="fort">
+    <form action="" method="post" novalidate id="fort" class="m-2">
       {% csrf_token %}
-      {{ form.as_p }}
+      {% load crispy_forms_tags %}
+      {{ form|crispy }}
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>
   {% else %}
